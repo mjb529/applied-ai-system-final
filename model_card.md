@@ -20,6 +20,8 @@ A user could misuse the system by treating a diagnosis as guaranteed and changin
 
 Reliability is tested through unit tests and `evaluate_system.py`. The evaluation harness checks six predefined reports covering state reset, inverted hints, difficulty range, input validation, render order, and vague input. A passing run means the investigator returned the expected category and met the minimum confidence threshold for each case.
 
+Latest local results: `pytest` passed 34 tests, and `python evaluate_system.py` passed 6 out of 6 reliability cases. The most surprising result was that the most responsible behavior for vague input is not a more elaborate answer; it is a guardrail that asks for more context before recommending a fix.
+
 ## AI Collaboration Reflection
 
 I used AI as a development partner for debugging, architecture planning, and documentation. A helpful suggestion was to separate the original game logic from the new investigation workflow, which made the project easier to test and explain. A flawed suggestion was to fix Streamlit display lag by moving widgets around; that risked introducing layout-state bugs, so the final design uses stable widget placement and placeholders instead.

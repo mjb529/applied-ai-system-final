@@ -4,15 +4,29 @@ from __future__ import annotations
 
 import argparse
 import json
+from pathlib import Path
 
 from investigator import GameGlitchInvestigator
 
 
+DEMO_CASES_PATH = Path(__file__).parent / "demo_cases.json"
 DEMO_REPORTS = [
     "When I click submit, the secret number changes and I can never win.",
     "The hint says go higher even when my guess is above the secret number.",
     "Hard mode says it is hard, but the range seems easier than normal.",
 ]
+
+
+def load_demo_reports() -> list[str]:
+    """Load camera-ready demo cases, with a code fallback for portability."""
+
+    try:
+        cases = json.loads(DEMO_CASES_PATH.read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError):
+        return DEMO_REPORTS
+
+    reports = [case.get("report", "") for case in cases if case.get("include_in_video", True)]
+    return reports or DEMO_REPORTS
 
 
 def main() -> None:
@@ -22,7 +36,7 @@ def main() -> None:
     parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
     args = parser.parse_args()
 
-    reports = DEMO_REPORTS if args.demo else [args.bug]
+    reports = load_demo_reports() if args.demo else [args.bug]
     if not reports or reports == [None]:
         parser.error("Provide --bug 'description' or use --demo.")
 

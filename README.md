@@ -139,3 +139,5 @@ This project shows that I can turn a small debugging exercise into a more comple
 Loom link: `<add Loom walkthrough link here before submission>`
 
 The video should show the Streamlit game, two or three investigator inputs, one guardrail case, and the reliability evaluation command.
+
+For a camera-ready recording plan, see `DEMO_WALKTHROUGH.md`. The exact demo inputs are stored in `demo_cases.json`.

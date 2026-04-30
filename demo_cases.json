@@ -1,0 +1,30 @@
+[
+  {
+    "name": "State reset investigation",
+    "report": "When I click submit, the secret number changes and I can never win.",
+    "expected_category": "streamlit_state",
+    "what_to_show": "The system retrieves Streamlit session-state knowledge and recommends preserving game values in st.session_state.",
+    "include_in_video": true
+  },
+  {
+    "name": "Hint logic investigation",
+    "report": "The hint says go higher even when my guess is above the secret number.",
+    "expected_category": "hint_logic",
+    "what_to_show": "The system retrieves comparison-rule knowledge and recommends testing too-high and too-low behavior.",
+    "include_in_video": true
+  },
+  {
+    "name": "Difficulty range investigation",
+    "report": "Hard mode says it is hard, but the range seems easier than normal.",
+    "expected_category": "difficulty_range",
+    "what_to_show": "The system retrieves difficulty-range knowledge and recommends keeping range, attempts, and validation in sync.",
+    "include_in_video": true
+  },
+  {
+    "name": "Guardrail demonstration",
+    "report": "bad",
+    "expected_category": "needs_more_context",
+    "what_to_show": "The system refuses to invent a diagnosis from vague input and asks for more context.",
+    "include_in_video": true
+  }
+]

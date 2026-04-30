@@ -136,6 +136,6 @@ This project shows that I can turn a small debugging exercise into a more comple
 
 ## Demo Walkthrough
 
-Loom link: `<add Loom walkthrough link here before submission>`
+Loom link: `https://www.loom.com/share/95edb3dad2114816ba8036ca7d8b308c`
 
-The video should show the Streamlit game, two or three investigator inputs, one guardrail case, and the reliability evaluation command.
+The video shows the game while we walk through a demo highlighting a sample bug being identified and solved for.
